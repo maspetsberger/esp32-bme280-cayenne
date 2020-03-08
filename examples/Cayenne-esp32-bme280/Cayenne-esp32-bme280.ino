@@ -35,7 +35,7 @@ CayenneArduinoMQTTClient Cayenne;
 void setup() {
   Serial.begin(115200);
   while(!Serial);    // time to get serial running
-  
+
   // Connect to the WiFi network
   Serial.printf("Connecting to %s\n", ssid);
   WiFi.begin(ssid, pass);
@@ -72,7 +72,7 @@ void setup() {
 }
 
 void loop() {
-	Cayenne.loop();
+  Cayenne.loop();
 }
 
 // Default function for sending sensor data at intervals to Cayenne.

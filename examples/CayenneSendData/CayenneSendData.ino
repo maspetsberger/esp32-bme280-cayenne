@@ -41,25 +41,25 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   // Initialize Cayenne MQTT
-	Cayenne.begin(wifi, username, password, clientID);
+  Cayenne.begin(wifi, username, password, clientID);
 }
 
 void loop() {
-	Cayenne.loop();
+  Cayenne.loop();
 }
 
 // Default function for sending sensor data at intervals to Cayenne.
 // You can also use functions for specific channels, e.g CAYENNE_OUT(1) for sending channel 1 data.
 CAYENNE_OUT_DEFAULT()
 {
-	Cayenne.virtualWrite(0, millis());
+  Cayenne.virtualWrite(0, millis());
 }
 
 // Default function for processing actuator commands from the Cayenne Dashboard.
 // You can also use functions for specific channels, e.g CAYENNE_IN(1) for channel 1 commands.
 CAYENNE_IN_DEFAULT()
 {
-	CAYENNE_LOG("Channel %u, value %s", request.channel, getValue.asString());
-	//Process message here. If there is an error set an error message using getValue.setError(), e.g getValue.setError("Error message");
+  CAYENNE_LOG("Channel %u, value %s", request.channel, getValue.asString());
+  //Process message here. If there is an error set an error message using getValue.setError(), e.g getValue.setError("Error message");
 }
 
